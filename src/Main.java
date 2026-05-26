@@ -1,43 +1,51 @@
-import java.util.PriorityQueue;
-import java.util.Queue;
+import entidades.Paciente;
+import heap.FilaComPrioridadeHeap;
 
-import entidades.Pessoa;
-import estatica.FilaComPrioridade;
-
+/**
+ * Classe principal para execução do sistema de triagem do Hospital São Binário.
+ * <p>
+ * Esta classe simula o fluxo de entrada de 6 pacientes de teste, exibe o comportamento
+ * interno da árvore binária (Heap) passo a passo e descarrega a fila gerando a ordem de chamada.
+ * </p>
+ * * @author Leomar Alves Marcelino
+ * @version 1.0
+ */
 public class Main {
-    public static void main(String args[]){
-        System.out.println("--- Fila de Inteiros ---");
 
-        FilaComPrioridade<Integer> fila = new FilaComPrioridade<>(10);
+    /**
+     * Ponto de entrada principal do programa.
+     * * @param args Argumentos de linha de comando (não utilizados).
+     */
+    public static void main(String[] args) {
+        FilaComPrioridadeHeap<Paciente> filaDeTriagem = new FilaComPrioridadeHeap<>(10);
 
-        fila.enfileirar(1);
-        fila.enfileirar(3);
-        fila.enfileirar(2);
+        Paciente p1 = new Paciente("Carlos", 1, 45, false);
+        Paciente p2 = new Paciente("Maria", 5, 5, false);
+        Paciente p3 = new Paciente("João", 3, 20, false);
+        Paciente p4 = new Paciente("Beatriz", 3, 35, true);
+        Paciente p5 = new Paciente("Pedro", 5, 2, false);
+        Paciente p6 = new Paciente("Helena", 2, 45, true);
 
-        System.out.println(fila);
+        System.out.println("=== REGISTRANDO CHEGADA DOS PACIENTES ===\n");
 
-        System.out.println("\n--- Fila de Pessoas ---");
+        Paciente[] pacientes = {p1, p2, p3, p4, p5, p6};
 
-        FilaComPrioridade<Pessoa> filaPessoas = new FilaComPrioridade<>(10);
-
-        filaPessoas.enfileirar(new Pessoa("Adão", 1));
-        filaPessoas.enfileirar(new Pessoa("Carlos", 3));
-        filaPessoas.enfileirar(new Pessoa("Bruno", 2));
-
-        while (!filaPessoas.estaVazia()) {
-            System.out.println(filaPessoas.desenfileirar());
+        for (Paciente p : pacientes) {
+            filaDeTriagem.enfileirar(p);
+            System.out.println("Inserido: " + p.getNome());
+            System.out.println("Estado do Heap: " + filaDeTriagem.toString() + "\n");
         }
 
-        System.out.println("\n--- Fila de Pessoas (PriorityQueue) ---");
+        System.out.println("=== ORDEM DE ATENDIMENTO (DESENFILEIRANDO) ===\n");
 
-        Queue<Pessoa> filaPessoasJava = new PriorityQueue<>(10);
-
-        filaPessoasJava.add(new Pessoa("Adão", 1));
-        filaPessoasJava.add(new Pessoa("Carlos", 3));
-        filaPessoasJava.add(new Pessoa("Bruno", 2));
-
-        while (!filaPessoasJava.isEmpty()) {
-            System.out.println(filaPessoasJava.poll());
+        int contador = 1;
+        while (!filaDeTriagem.estaVazia()) {
+            Paciente atendido = filaDeTriagem.desenfileirar();
+            System.out.println(contador + ". " + atendido.getNome()
+                    + " (Urgência: " + atendido.getNivelUrgencia()
+                    + ", Espera: " + atendido.getTempoEsperaMinutos()
+                    + "m, Vuln: " + atendido.isGrupoVulneravel() + ")");
+            contador++;
         }
     }
 }
