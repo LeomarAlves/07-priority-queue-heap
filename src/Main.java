@@ -1,4 +1,5 @@
 import entidades.Paciente;
+
 import heap.FilaComPrioridadeHeap;
 
 /**
