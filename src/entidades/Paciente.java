@@ -19,6 +19,8 @@ public class Paciente implements Comparable<Paciente> {
     /** Nível de urgência clínica variando de 1 (Azul) a 5 (Vermelho). */
     private int nivelUrgencia;
 
+    /*TESTE*/
+
     /** Quantidade de minutos que o paciente está aguardando na fila. */
     private int tempoEsperaMinutos;
 
