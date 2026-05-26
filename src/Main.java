@@ -8,14 +8,14 @@ import heap.FilaComPrioridadeHeap;
  * Esta classe simula o fluxo de entrada de 6 pacientes de teste, exibe o comportamento
  * interno da árvore binária (Heap) passo a passo e descarrega a fila gerando a ordem de chamada.
  * </p>
- * * @author Leomar Alves Marcelino
+ *  @author Leomar Alves Marcelino
  * @version 1.0
  */
 public class Main {
 
     /**
      * Ponto de entrada principal do programa.
-     * * @param args Argumentos de linha de comando (não utilizados).
+     *  @param args Argumentos de linha de comando (não utilizados).
      */
     public static void main(String[] args) {
         FilaComPrioridadeHeap<Paciente> filaDeTriagem = new FilaComPrioridadeHeap<>(10);

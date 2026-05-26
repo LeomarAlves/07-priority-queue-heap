@@ -28,7 +28,7 @@ public class Paciente implements Comparable<Paciente> {
 
     /**
      * Construtor completo para a criação de um paciente na triagem.
-     * * @param nome                 Nome do paciente.
+     * @param nome                 Nome do paciente.
      * @param nivelUrgencia        Nível de urgência (1 a 5).
      * @param tempoEsperaMinutos   Tempo de espera em minutos.
      * @param grupoVulneravel      Se pertence ou não ao grupo vulnerável.
@@ -40,16 +40,16 @@ public class Paciente implements Comparable<Paciente> {
         this.grupoVulneravel = grupoVulneravel;
     }
 
-    /** @return O nome do paciente. */
+    /* @return O nome do paciente. */
     public String getNome() { return nome; }
 
-    /** @return O nível de urgência clínica (1 a 5). */
+    /* @return O nível de urgência clínica (1 a 5). */
     public int getNivelUrgencia() { return nivelUrgencia; }
 
-    /** @return O tempo de espera em minutos. */
+    /* @return O tempo de espera em minutos. */
     public int getTempoEsperaMinutos() { return tempoEsperaMinutos; }
 
-    /** @return true se o paciente for vulnerável, false caso contrário. */
+    /* @return true se o paciente for vulnerável, false caso contrário. */
     public boolean isGrupoVulneravel() { return grupoVulneravel; }
 
     /**
@@ -79,7 +79,7 @@ public class Paciente implements Comparable<Paciente> {
 
     /**
      * Retorna uma representação textual formatada do paciente.
-     * * @return String contendo os dados clínicos do paciente.
+     *  @return String contendo os dados clínicos do paciente.
      */
     @Override
     public String toString() {

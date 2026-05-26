@@ -9,7 +9,7 @@ import estatica.FilaEstatica;
  * Os elementos são organizados em uma árvore binária compacta representada em array,
  * onde a raiz (índice 0) armazena permanentemente o elemento de maior prioridade.
  * </p>
- * * @param <T> O tipo de elemento armazenado na fila.
+ *  @param <T> O tipo de elemento armazenado na fila.
  * @author Leomar Alves Marcelino
  * @version 1.0
  */
@@ -17,16 +17,16 @@ public class FilaComPrioridadeHeap<T> extends FilaEstatica<T> {
 
     /**
      * Constrói uma fila com prioridade baseada em heap com uma capacidade inicial fixa.
-     * * @param capacidade O tamanho máximo permitido para o array interno da fila.
+     * @param capacidade O tamanho máximo permitido para o array interno da fila.
      */
-    public FilaComPrioridadeHeap(int capacity) {
-        super(capacity);
+    public FilaComPrioridadeHeap(int capacidade) {
+        super(capacidade);
     }
 
     /**
      * Enfileira um novo elemento na estrutura do Heap.
      * O elemento é inserido na última posição livre e rearranjado usando o algoritmo Sobe Heap.
-     * * @param elemento O objeto a ser inserido na fila.
+     *  @param elemento O objeto a ser inserido na fila.
      * @throws RuntimeException Se a fila estiver cheia.
      */
     @Override
@@ -44,7 +44,7 @@ public class FilaComPrioridadeHeap<T> extends FilaEstatica<T> {
     /**
      * Remove e retorna o elemento de maior prioridade (localizado na raiz do Heap).
      * O último elemento substitui a raiz temporariamente e é rearranjado usando o algoritmo Desce Heap.
-     * * @return O elemento com maior nível de prioridade clínica.
+     *  @return O elemento com maior nível de prioridade clínica.
      * @throws RuntimeException Se a fila estiver vazia.
      */
     @Override
@@ -69,7 +69,7 @@ public class FilaComPrioridadeHeap<T> extends FilaEstatica<T> {
     /**
      * Realiza a subida do elemento no Heap (Up-Heap / Bubble-Up) para restaurar a propriedade do Heap Máximo.
      * Realiza o cast dinâmico para {@link Comparable} para efetuar as comparações de prioridade.
-     * * @param indice O índice inicial do elemento que deve subir na árvore.
+     * @param indice O índice inicial do elemento que deve subir na árvore.
      */
     @SuppressWarnings("unchecked")
     private void sobeHeap(int indice) {
@@ -91,7 +91,7 @@ public class FilaComPrioridadeHeap<T> extends FilaEstatica<T> {
     /**
      * Realiza a descida do elemento no Heap (Down-Heap / Bubble-Down) para restaurar a propriedade do Heap Máximo.
      * Compara o nó atual com seus dois filhos (esquerdo e direito) e realiza as trocas necessárias.
-     * * @param indice O índice inicial do elemento que deve descer na árvore.
+     *  @param indice O índice inicial do elemento que deve descer na árvore.
      */
     @SuppressWarnings("unchecked")
     private void desceHeap(int indice) {
@@ -121,7 +121,7 @@ public class FilaComPrioridadeHeap<T> extends FilaEstatica<T> {
 
     /**
      * Auxilia na troca de posição de dois elementos dentro do array interno.
-     * * @param i Índice do primeiro elemento.
+     *  @param i Índice do primeiro elemento.
      * @param j Índice do segundo elemento.
      */
     private void trocar(int i, int j) {
@@ -132,7 +132,7 @@ public class FilaComPrioridadeHeap<T> extends FilaEstatica<T> {
 
     /**
      * Retorna o estado interno do array do heap para fins de debug e testes.
-     * * @return Uma string contendo a sequência linear do Heap.
+     *  @return Uma string contendo a sequência linear do Heap.
      */
     @Override
     public String toString() {
